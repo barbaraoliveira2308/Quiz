@@ -4,6 +4,7 @@ import Welcome from './components/Welcome';
 
 import './App.css';
 import Question from './components/Question';
+import GameOver from './components/GameOver'
 
 
 
@@ -11,7 +12,7 @@ function App() {
 
   const [quizState, dispatch] = useContext(QuizContext)
   useEffect(() => {
-    dispatch({ type: "RECORDER_QUESTIONS" })
+    dispatch({ type: "REORDER_QUESTIONS" })
   }, [])
 
   return (
@@ -21,6 +22,7 @@ function App() {
 
       {quizState.gameStage === "Start" && <Welcome />}
       {quizState.gameStage === "Playing" && < Question />}
+      {quizState.gameStage === "End" && < GameOver/>}
 
     </div>
 
